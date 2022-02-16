@@ -20,7 +20,7 @@
 
 
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"> <a href="{{route('products.index')}}">Dashboard</a></li>
+    <li class="breadcrumb-item"> <a href="{{route('admin.index')}}">Dashboard</a></li>
     <li class="breadcrumb-item"> <a href="{{route('products.index')}}">Produtos</a></li>
     <li class="breadcrumb-item active"><a href="{{route('tags.product.index', $product->id)}}">Tags do Produto</a></li>
     <li class="breadcrumb-item active"><a href="">Adicionar Tags </a></li>
