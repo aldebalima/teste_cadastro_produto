@@ -2,10 +2,10 @@
 
 @section('title', 'Tags | P')
 @section('content_header')
-<p>Bem vindo ao painel administrativo!!</p>
+<p>Gestão de Tags!!</p>
 
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"> <a href="{{route('products.index')}}">Dashboard</a></li>
+        <li class="breadcrumb-item"> <a href="{{route('admin.index')}}">Dashboard</a></li>
         <li class="breadcrumb-item active"><a href="{{route('tags.index')}}">Tags</a></li>
     </ol>
     <div class="row">
@@ -16,16 +16,16 @@
 @stop
 
 @section('content')
-    
-    @if (isset($message)==true)
-        @if ($message == Session::get('sucesss'))
-            <div class="alert alert-sucess">
-                <p>
-                {{$message ?? ''}}
-                </p>
-            </div>
-        @endif
         
+    @if(session()->has('sucess'))
+    <div class="alert alert-success">
+        {{ session()->get('sucess') }}
+    </div>
+    @endif
+    @if(session()->has('errors'))
+    <div class="alert alert-danger">
+        {{ session()->get('errors') }}
+    </div>
     @endif
     <div class="card">
         <div class="card-header">
@@ -52,7 +52,7 @@
                             <td>{{$tag->id}}</td>
                             <td>{{$tag->name}}</td>
                             <td>{{$tag->detail}}</td>
-                            <td>{{$tag->tag_image_url}}</td>
+                            <td>{{$tag->image}}</td>
                             <td>
                                 <form action="{{route('tags.destroy', $tag->id)}}" method="POST">
                                     <a href="{{route('tags.show', $tag->id)}}" class="btn btn-info">Detalhes</a>

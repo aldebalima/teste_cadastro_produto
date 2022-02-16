@@ -24,7 +24,7 @@
                 </li>
                 
                  <li>
-                    <strong>Imagem: </strong> {{$tag->tag_image_url}}
+                    <strong>Imagem: </strong> {{$tag->image}}
                 </li>
             
               
