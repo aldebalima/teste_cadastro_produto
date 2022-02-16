@@ -66,5 +66,17 @@ class Product extends Model
         DB::table('tag_product')->insertOrIgnore([
             ["product_id"=>$this->id, "tag_id" => $tag]]);
     }
+    /**
+    * Metodo retorna dados sobre produtos 
+    */
+    public function sumarizador(){
+        $result = DB::select('SELECT products.name, products.id, COUNT(DISTINCT(tags.id)) AS total_tags,
+                  GROUP_CONCAT(tags.name) AS todos_as_tags FROM tag_product
+                  JOIN tags ON(tags.id = tag_product.tag_id)
+                  RIGHT JOIN products ON(products.id = tag_product.product_id) 
+                  GROUP BY (products.id)
+                  ORDER BY total_tags DESC');
+        return $result;
+    }
     
 }

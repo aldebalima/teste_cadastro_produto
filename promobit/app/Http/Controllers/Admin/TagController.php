@@ -113,5 +113,6 @@ class TagController extends Controller
         $tags = $holder->search($request->filter);
         return view('admin.tags.index', ['tags' => $tags, 'filters'=> $filters]);
     }
+    
 
 }

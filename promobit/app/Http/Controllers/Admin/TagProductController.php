@@ -65,7 +65,7 @@ class TagProductController extends Controller
             return redirect()->back();
         }
         if($request->tags == null){
-            return redirect()->back()->with('message', 'Selecione ao menos uma tag!');
+            return redirect()->back()->with('errors', 'Selecione ao menos uma tag!');
         }
         $product->deleteTagsProduct();
         
@@ -75,7 +75,7 @@ class TagProductController extends Controller
         }
         
         
-        return redirect()->route('tags.product.avaiable', $product->id);
+        return redirect()->route('tags.product.avaiable', $product->id)->with('sucess', 'Salvo com sucesso!');
     }
     public function search(Request $request, $idProduct){
          //
@@ -97,14 +97,30 @@ class TagProductController extends Controller
        $product = $this->product->find($idProduct);
        
        if(!$product){
-           return redirect()->back();
+           return redirect()->back()->with('errors', 'Produto inexistente!!');
        }
        
        $product->deleteTagsProductById($request->tag_id);
        $tags = $product->searchTagsProduct($request->filter);
 
        
-       return view('admin.tagsProduct.tags.index', ['tags' => $tags, 'product'=> $product]);
+       return view('admin.tagsProduct.tags.index',['tags' => $tags, 'product'=> $product])->with('sucess', 'Tag deletada com sucesso');
 
+   }
+   public function addSearch(Request $request, $idProduct){
+        
+        $filters = $request->except('_token');
+        $holder = new Tag;
+        $tags = $holder->search($request->filter);
+        $product = $this->product->find($idProduct);
+       
+        if(!$product){
+            return redirect()->back();
+        }
+        $tagsChecked = $product->getProductTags();
+
+        return view('admin.tagsProduct.tags.avaiable', ['tags' => $tags, 'product'=> $product, 'tagsChecked' => $tagsChecked, 'filters' => $filters]);
+
+       
    }
 }

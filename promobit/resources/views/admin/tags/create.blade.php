@@ -48,7 +48,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Logo upload</strong>
-               <input type="text" name="tag_image_url" id="tag_image_url" class="form-control" placeholder="detalhes da Tag">
+               <input type="file" name="image" id="image" class="form-control">
         </div>
     </div>
     

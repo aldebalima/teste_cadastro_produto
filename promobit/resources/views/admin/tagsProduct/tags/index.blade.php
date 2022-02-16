@@ -18,17 +18,17 @@
 @stop
 
 @section('content')
-    
-    @if (isset($message)==true)
-        @if ($message == Session::get('sucesss'))
-            <div class="alert alert-sucess">
-                <p>
-                {{$message ?? ''}}
-                </p>
-            </div>
-        @endif
-        
-    @endif
+
+@if(session()->has('sucess'))
+<div class="alert alert-success">
+    {{ session()->get('sucess') }}
+</div>
+@endif
+@if(session()->has('errors'))
+<div class="alert alert-danger">
+    {{ session()->get('errors') }}
+</div>
+@endif
     <div class="card">
         <div class="card-header">
             <div class="col-lg-12 margin-tb">
