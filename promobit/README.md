@@ -1,61 +1,192 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">
+    <img alt="Promobit"  width="500" height="250" title="#seletivo" src="./project/images/fundacao-certi-logo.svg" />
+</h1>
+
+<h4 align="center"> 
+	🚧  Prcesso Seletivo - CERTI  🚧
+</h4>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> •
+ <a href="#-layout">Layout</a> • 
+ <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-contribuidores">Contribuidores</a> • 
+ <a href="#-autor">Autor</a> • 
+ <a href="#user-content--licença">Licença</a>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 💻 Sobre o projeto
+<h3> Seletivo CERTI - Primeira fase do pocesso seletivo para vaga de Desenvolvimento de Software - Junior a Sênior.</h3> <br>
+<p>Orientações:</p>
+ <p>    Na linguagem de sua preferência, crie um servidor HTTP que, para cada requisição GET, retorne como resposta um JSON cuja chave `result` seja a o resultado de uma operação matemática recebida como parâmetro.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ 1. Os números podem estar no intervalo [-99999, 99999].
+ 2. As operações podem ser adição: (`+`), subtração (`-`), divisão (`/`) e multiplicação (`*`).\n
+ 3. Deve ser respeitada a precedência das operações, incluindo até um nível de parênteses.\n
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ⚙️ Funcionalidades dessa API
+ 
+- [x] Os usuários da aplicação podem enviar requisições sem autenticação, para o end-point:
+  - http://localhost:3000/api/*equação*
+    - *equação* -> equação matemática padrão com hierarquia por padrão aritmético na sequência abaixo:
+  - [x] hierarquia de parenteses(\(x+y\))
+  - [x] divisão (/)
+  - [x] multiplicação(*)
+  - [x] soma (+)
+  - [x] subtração(-)
+ 
+- [x] Os avaliadores podem executar os testes baseados nas urls como exemplos:
+  - [x] http://localhost:3000/api/1
+  - [x] http://localhost:3000/api/-1042+1
+  - [x] http://localhost:3000/api/4*4+4
+  - [x] http://localhost:3000/api/4*\(4+4\)
+  - [x] http://localhost:3000/api/\(4*4\)/-4
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- [x] Requisitos atingidos nessa aplicação:
+  - [x] Criação de um repositório *privado* em uma conta sua do git.
+  - [x] A entrega será através de um Pull Request para o seu próprio repositório e convide seletivo-certi-cdm" para acessar o repositório.
+  - [x] A utilização de biblioteca para recepção e resposta das informações requeridas. Implementação da interpretação das equações.
+  - [x] Criação do Readme com informações de configuração uso e instalção.
+  - [x] Solução própria para o algoritmo.
+ 
+  - Observações sobre avaliação:
+    - *Bônus*: criar ambiente Docker.
+    -  Avaliar edge cases e tratamento de erros, testes unitários, estruturação e qualidade do código, uso do git.
+---
 
-## Laravel Sponsors
+## 🎨 Layout
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+A aplicação não possui layout exclusivo apenas o que a própria bilioteca disponibiliza.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+## 🚀 Como executar o projeto
 
-## Contributing
+Este projeto é dividido em:
+1. Backend - controlador de requisição (pasta project) 
+2. Backend - regra de negócio (pasta api1)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+### Pré-requisitos
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com),
+[Python](https://www.python.org/doc/),
+ou 
+[Docker](https://docs.docker.com/engine/install/ubuntu/),
+[Docker-compose] (https://docs.docker.com/compose/),
+Editor [VSCode](https://code.visualstudio.com/).
 
-## Security Vulnerabilities
+#### 🎲 Rodando o (servidor) com php @todo
+```bash
+# Clone este repositório
+$ git clone git@github.com:aldebalima/seletivo-certi-cdm.git
+# Acesse a pasta do projeto no terminal/cmd
+$ cd seletivo-certi-cdm
+# Crie ambiente virtual caso queira com 
+$ python3 -m venv venv
+# Ative ambiente
+$ source venv/bin/activate
+# Instale as dependências
+$ pip install -r requirements.txt
+# Execute a aplicação em modo de desenvolvimento
+$ python manage.py runserver 3000
+# O servidor inciará na porta:3000 - acesse http://localhost:3000 
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Para rodar os teste da aplicação
 
-## License
+```bash
+# Após subir o container execute:
+$ python manage.py test
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p align="center">
+  <a href="https://github.com:aldebalima/seletivo-certi-cdm.git/testes_Insomnia_2022-01-15.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
+
+
+#### 🧭  Rodando o (servidor) com docker-compose
+
+```bash
+# Clone este repositório
+$ git clone git@github.com:aldebalima/test_cadastro_produto.git
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd test_cadastro_produto/promobit
+# Permissão para o pacote
+$ sudo chown -R $USER:$USER *
+# MOdificar variaveis de ambiente.
+$ cp .env.example .env
+# Instalando 
+$ docker-compose build
+# Subindo container
+$ docker-compose up -d
+# Verifique se o container subiu corretamente
+$ docker ps
+# Gerando chave de aplicação
+$ docker-compose exec app php artisan key:generate
+# Inicializando limpeza de cache do artisan
+$ docker-compose exec app php artisan config:cache
+```
+
+Para rodar os teste da aplicação
+
+```bash
+# Após subir o container execute:
+$ docker-compose run web python manage.py test
+```
+---
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+#### **WebServer**  ([Python](https://www.python.org/doc/)  +  [WSGI](https://docs.djangoproject.com/pt-br/3.0/howto/deployment/wsgi/))
+
+> Veja o arquivo  [requitements.txt](https://github.com/aldebalima/seletivo-certi-cdm/requitements.txt)
+
+-   **[Django](https://www.djangoproject.com/)**
+-   **[django-filter](https://django-filter.readthedocs.io)**
+-   **[djangorestframework](https://www.django-rest-framework.org)**
+-   **[Markdown](https://python-markdown.github.io/)**
+-   **[pytz](https://pypi.org/project/pytz/)**
+
+-   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**  → Extensions:  **[SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)**
+-   Teste de API:  **[Insomnia](https://insomnia.rest/)**
+
+---
+
+## 👨‍💻 Contribuidores
+
+  Gratidão a comunidade python pelas bilbiotecas
+
+## 🦸 Autor
+
+
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/57299968?s=52&v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Aldebarã Franciso Ferreira de Lima</b></sub>
+ <br />
+
+[![Linkedin Badge](https://img.shields.io/badge/-Aldebara-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/aldebalima/)](https://www.linkedin.com/in/aldebalima/) 
+[![Gmail Badge](https://img.shields.io/badge/-aldebalima@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:aldebalima@gmail.com)](mailto:aldebalima@gmail.com)
+
+---
+
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+Feito por Aldebarã Lima 👋🏽 [Entre em contato!](https://www.linkedin.com/in/aldebalima/)
+
+---
+
+##  Versões do README
+
+[Português 🇧🇷](./README.md)  
