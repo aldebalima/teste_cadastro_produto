@@ -24,7 +24,8 @@ class AdminController extends Controller
 
         $result1 = $repoProd->sumarizador();
         $result2 = $repoTag->sumarizador();
-        return view('admin.index', compact('result1', 'result2'));
+        $result3 = $repoProd->classifiedProducts();
+        return view('admin.index', compact('result1', 'result2', 'result3'));
     }
 
     /**

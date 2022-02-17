@@ -28,11 +28,11 @@ class StoreUpdateProduct extends FormRequest
             //
             'name' =>["required","min:3","max:50","unique:products,name,{$id},id"],
             'detail' => ["required","min:3","max:50"],
-            'image' => ["required","image"]
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500'
 
         ];
         if($this->method()=='PUT'){
-            $rules['image'] = ['nullable', 'image'];
+            $rules['image'] = 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:width=500,height=500';
         }
         return $rules;
     }

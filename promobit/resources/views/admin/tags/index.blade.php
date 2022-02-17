@@ -52,7 +52,7 @@
                             <td>{{$tag->id}}</td>
                             <td>{{$tag->name}}</td>
                             <td>{{$tag->detail}}</td>
-                            <td>{{$tag->image}}</td>
+                            <td><img style="max-width:45px" src="{{ url("storage/{$tag->image}") }}" alt="{{$tag->name}}"></td>
                             <td>
                                 <form action="{{route('tags.destroy', $tag->id)}}" method="POST">
                                     <a href="{{route('tags.show', $tag->id)}}" class="btn btn-info">Detalhes</a>
@@ -76,4 +76,10 @@
             
         </div>
     </div>
-@stop
+    
+    {{-- <a href="https://www.flaticon.com/free-icons/wood" title="wood icons">Wood icons created by Nikita Golubev - Flaticon</a> --}}
+    {{-- <a href="https://www.flaticon.com/free-icons/gold-ingot" title="gold ingot icons">Gold ingot icons created by Smashicons - Flaticon</a> --}}
+    {{-- Tanks to: <a href="https://www.flaticon.com/free-icons/gold-ingot" title="gold ingot icons">Gold ingot icons created by Smashicons - Flaticon</a> --}}
+    {{-- <a href="https://www.flaticon.com/free-icons/bronze-medal" title="bronze medal icons">Bronze medal icons created by KSan Wapiti - Flaticon</a> --}}
+    {{-- <a href="https://www.flaticon.com/free-icons/metal" title="metal icons">Metal icons created by smashingstocks - Flaticon</a> --}}
+    @stop

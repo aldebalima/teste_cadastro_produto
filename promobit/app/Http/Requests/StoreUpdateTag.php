@@ -24,11 +24,16 @@ class StoreUpdateTag extends FormRequest
     public function rules()
     {
         $id = $this->segment(3);
-        return [
+        $rules= [
             //
             'name' =>"required|min:3|max:50|unique:products,name,{$id},id",
-            'detail' => 'required|min:3|max:50'
+            'detail' => 'required|min:3|max:50',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024|dimensions:width=32,height=32'
 
         ];
+        if($this->method()=='PUT'){
+            $rules['image'] = 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024|dimensions:width=32,height=32';
+        }
+        return $rules;
     }
 }

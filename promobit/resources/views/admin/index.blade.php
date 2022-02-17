@@ -15,7 +15,7 @@
     <div class="col-lg-3 col-xs-6">
         <div class="small-box bg-green">
         <div class="inner">
-        <h3>50</h3>
+        <h3>{{count($result1)}}</h3>
         <p>Total de Produtos</p>
         </div>
         <div class="icon">
@@ -29,7 +29,7 @@
         
         <div class="small-box bg-yellow">
         <div class="inner">
-        <h3>44</h3>
+        <h3>{{count($result2)}}</h3>
         <p>Total de Tags</p>
         </div>
         <div class="icon">
@@ -43,7 +43,7 @@
         
         <div class="small-box bg-blue">
         <div class="inner">
-        <h3>65</h3>
+        <h3>{{$result3}}</h3>
         <p>Produtos Classificados</p>
         </div>
         <div class="icon">
@@ -56,7 +56,7 @@
         
             <div class="small-box bg-red">
             <div class="inner">
-            <h3>65</h3>
+            <h3>{{count($result1) - $result3}}</h3>
             <p>Produtos Sem classificação</p>
             </div>
             <div class="icon">
@@ -74,9 +74,7 @@
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                </button>
+               
             </div>
         </div>
     
@@ -93,33 +91,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($result2 as $item)
-                        <tr>
-                        <td>
-                            <a href="{{route('tags.show', $item->id)}}">{{$item->id}}</a></td>
-                        <td>{{$item->name}}</td>
-                        <td>
-                            <span class="badge badge-success">{{$item->image}}</span></td>
-                        <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20">{{$item->total_produtos}}x</div>
-                        </td>
+                    @if (isset($result2))                       
+                    
+                        @foreach ($result2 as $item)
+                            <tr>
+                            <td>
+                                <a href="{{route('tags.show', $item->id)}}">{{$item->id}}</a></td>
+                            <td>{{$item->name}}</td>
+                            <td>
+                                <img src="{{url("storage/{$item->image}")}}" alt="{{$item->name}}"> 
+                            <td>
+                                <div class="sparkbar" data-color="#00a65a" data-height="20">{{$item->total_produtos}}x</div>
+                            </td>
+                            
+                            <td>
+                                <div class="sparkbar" data-color="#00a65a" data-height="20"><p class="lh-1">{{$item->todos_os_produtos}}</p></div>
+                            </td>
+                            </tr>    
                         
-                        <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20"><p class="lh-1">{{$item->todos_os_produtos}}</p></div>
-                        </td>
-                        </tr>    
-                    
-                    @endforeach
-                    
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
     </div>
-    
-    <div class="card-footer clearfix">
-    <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Cadastro de Tags</a>
-    <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">Vincular Tags</a>
-    </div>
+   
     
     </div>
     
@@ -142,7 +138,7 @@
                         <tr>
                         <th width="100px">ID</th>
                         <th width="100px">Nome</th>
-                        <th width="100px">Uso</th>
+                        <th width="100px">Classificado</th>
                         <th>Lista de Tags</th>
                         </tr>
                     </thead>
@@ -168,10 +164,7 @@
             </div>
         </div>
         
-        <div class="card-footer clearfix">
-        <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Cadastro de Tags</a>
-        <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">Vincular Tags</a>
-        </div>
+      
         
         </div>
         

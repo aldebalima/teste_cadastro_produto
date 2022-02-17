@@ -14,6 +14,8 @@ use Admin\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/welcome', 'HomeController@welcome')->name('welcome');
+
 
 /**
  * Rotas de cadastros de tags de produtos
@@ -47,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
  */
 Auth::routes();
 /**
- * Rotas de painel administrativo
+ * Rotas de inicio
  */
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

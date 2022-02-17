@@ -29,7 +29,7 @@
         </ul>
     </div>
 @endif
-<form action="{{route('tags.store')}}" method="POST">
+<form action="{{route('tags.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
     <div class="row">
      <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,7 +47,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Logo upload</strong>
+            <strong>Logo upload</strong>(limites 32px por 32px)
                <input type="file" name="image" id="image" class="form-control">
         </div>
     </div>

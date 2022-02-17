@@ -33,6 +33,17 @@ class Tag extends Model
         ORDER BY (total_produtos) DESC');
         return $result;
     }
-    
+    /**
+     * Metodo para pegar todos as tags de um produto
+     */
+    public function getProductTagsById($productId){
+        $result = DB::table('tag_product')
+                    ->join('tags', 'tag_id', '=', 'tags.id')
+                    ->select('tags.*')
+                    ->where('product_id', '=', $productId)
+                    ->paginate();
+        return $result;
+
+    }
 
 }

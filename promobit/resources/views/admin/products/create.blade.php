@@ -47,7 +47,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Upload de imagem</strong>
+            <strong>Upload de imagem: </strong>(limites 500px por 500px)
                <input type="file" name="image" class="form-control">
         </div>
     </div>

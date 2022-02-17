@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateTag;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Storage;
+
 
 class TagController extends Controller
 {
@@ -45,8 +47,13 @@ class TagController extends Controller
     public function store(StoreUpdateTag $request)
     {
         //
-        
-        Tag::create($request->all());
+        $infos = $request->all();
+        $tag = new Tag();
+        if($request->hasFile('image') && $request->image->isValid()){
+            $local= $request->image->store('public/tags');
+            $infos['image'] = str_replace('public/', '', $local);
+        }
+        $tag->create($infos);
         return redirect()->route('tags.index')
             ->with('success', 'Tag cadastrada com sucesso');
     }
@@ -84,7 +91,19 @@ class TagController extends Controller
      */
     public function update(StoreUpdateTag $request, Tag $tag)
     {
-        $tag->update($request->all());
+        
+        $infos = $request->all();
+        //Remoção de Imagem
+        if($request->hasFile('image') && $request->image->isValid()){
+            if(Storage::exists("public/{$tag->image}")){
+                Storage::delete("public/{$tag->image}");
+            }
+            $local= $request->image->store('public/tags');
+            $infos['image'] = str_replace('public/', '', $local);
+        }
+        $tag->update($infos);
+
+
         return redirect()->route('tags.index')->with('success', 'Tag atualizada com sucesso');
     }
 
@@ -96,6 +115,9 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
+        if(Storage::exists("public/{$tag->image}")){
+            Storage::delete("public/{$tag->image}");
+        }
         $tag->delete();
         return redirect()->route('tags.index')->with('success', 'Tag deletada com sucesso');
     }

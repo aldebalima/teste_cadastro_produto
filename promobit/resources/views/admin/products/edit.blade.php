@@ -42,7 +42,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Url de imagem do Produto:</strong>
+                <strong>Url de imagem do Produto:</strong>(limites 500px por 500px)
                 <input type="file" name="image" id="detail" class="form-control" value="{{$product->image}}">
             </div>
         </div>

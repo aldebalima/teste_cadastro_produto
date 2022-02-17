@@ -23,8 +23,8 @@
                         {{$tag->detail}}
                 </li>
                 
-                 <li>
-                    <strong>Imagem: </strong> {{$tag->image}}
+                <li style="list-style-type: none">
+                    <img src="{{url("storage/{$tag->image}")}}" alt="{{$tag->name}}"> 
                 </li>
             
               

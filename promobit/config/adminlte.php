@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Promo</b>bit',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'storage/logos/promobit.ico',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -228,16 +228,25 @@ return [
         // Navbar items:
         
         [
+            'text' => 'Exibição',
+            'url'  => 'welcome',
+            'icon' => 'nav-icon fas fa-image',
+        ],
+        [
             'text' => 'Produtos',
             'url'  => 'admin/products',
+            'icon' => 'nav-icon fas fa-edit',
+            
         ],
         [
             'text' => 'Tags',
             'url'  => 'admin/tags',
+            'icon' => 'nav-icon fas  fa-plus-square',
         ],
         [
             'text' => 'Relatórios',
             'url'  => 'admin/',
+            'icon' => 'nav-icon fas fa-chart-pie',
         ],
         
     ],
