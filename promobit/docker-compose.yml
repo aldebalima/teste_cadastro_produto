@@ -13,16 +13,24 @@ services:
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
-    working_dir: /var/www
+    working_dir: /var/www/html
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
-
+  #Composer
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - app-network
   #Nginx Service
   webserver:
-    image: nginx:alpine
+    image: nginx:stable-alpine
     container_name: webserver
     restart: unless-stopped
     tty: true
@@ -30,11 +38,21 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
       - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/conf.d/:/etc/nginx/sites-enable/
     networks:
       - app-network
-
+  #Node
+  npm:
+    image: node:13.7
+    container_name: npm
+    volumes: 
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+    networks:
+      - app-network
   #MySQL Service
   db:
     image: mysql:5.7.22
