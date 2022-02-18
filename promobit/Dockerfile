@@ -41,6 +41,14 @@ COPY . /var/www/html
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www/html
 
+# Criando diretório de imagens
+RUN mkdir /var/www/html/storage/app/public/logos
+RUN mkdir /var/www/html/storage/app/public/products
+RUN mkdir /var/www/html/storage/app/public/tags
+# Enviando imagens para diretórios
+RUN cp img/logos/* /var/www/html/storage/app/public/logos
+RUN cp img/products/* /var/www/html/storage/app/public/products
+RUN cp img/tags/* /var/www/html/storage/app/public/tags
 
 # Change current user to www
 USER www

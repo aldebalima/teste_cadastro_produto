@@ -47,7 +47,7 @@ class ProductController extends Controller
         $infos = $request->all();
         $product = new Product();
         if($request->hasFile('image') && $request->image->isValid()){
-            $local= $request->image->store('products');
+            $local= $request->image->store('public/products');
             $infos['image'] = str_replace('public/', '', $local);
         }
         
@@ -100,7 +100,7 @@ class ProductController extends Controller
             if(Storage::exists("public/{$product->image}")){
                 Storage::delete("public/{$product->image}");
             }
-            $local= $request->image->store('products');
+            $local= $request->image->store('public/products');
             $infos['image'] = str_replace('public/', '', $local);
         }
         $product->update($infos);

@@ -50,7 +50,7 @@ class TagController extends Controller
         $infos = $request->all();
         $tag = new Tag();
         if($request->hasFile('image') && $request->image->isValid()){
-            $local= $request->image->store('tags');
+            $local= $request->image->store('public/tags');
             $infos['image'] = str_replace('public/', '', $local);
         }
         $tag->create($infos);
@@ -98,7 +98,7 @@ class TagController extends Controller
             if(Storage::exists("public/{$tag->image}")){
                 Storage::delete("public/{$tag->image}");
             }
-            $local= $request->image->store('tags');
+            $local= $request->image->store('public/tags');
             $infos['image'] = str_replace('public/', '', $local);
         }
         $tag->update($infos);
