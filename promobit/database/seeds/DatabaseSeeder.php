@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'products/index.jpeg'],
             ['name' => 'Lamborguini',
             'detail' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ',
-            'image' => 'products/lamborghini.jpeg'],
+            'image' => 'products/lamborguini.jpeg'],
             ['name' => 'Porche',
             'detail' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ',
             'image' => 'products/porche.jpeg'],
