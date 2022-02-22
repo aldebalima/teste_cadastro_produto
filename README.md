@@ -170,13 +170,13 @@ $ php artisan storage:link
 # Saia do container
 $ exit
 # Crie os diretórios com imagens de produtos já cadastrados
-$ mkdir storage/app/public/logos
-$ mkdir storage/app/public/products
-$ mkdir storage/app/public/tags
+$ mkdir storage/app/public/logos/
+$ mkdir storage/app/public/products/
+$ mkdir storage/app/public/tags/
 # Copie as imagens para as pastas
-$ cp img/logos/* storage/app/public/logos
-$ cp img/products/* storage/app/public/products
-$ cp img/tags/* storage/app/public/tags
+$ cp img/logos/* storage/app/public/logos/
+$ cp img/products/* storage/app/public/products/
+$ cp img/tags/* storage/app/public/tags/
 # Aplicação estará rodando em http://localhost/
 ```
 
