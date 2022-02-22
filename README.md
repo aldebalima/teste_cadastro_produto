@@ -105,8 +105,7 @@ $ php artisan key:generate
 $ php artisan storage:link
 # Rode as migrations e seeds
 $ php artisan migrate:fresh --seed
-# Instale as pacotes nodejs
-$ npm install
+
 # Crie os diretórios com imagens de produtos já cadastrados
 $ mkdir storage/app/public/logos
 $ mkdir storage/app/public/products
