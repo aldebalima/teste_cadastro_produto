@@ -157,12 +157,12 @@ $ show databases;
   CREATE DATABASE IF NOT EXISTS promobit_products COLLATE 'utf8_general_ci' ;
   GRANT ALL ON promobi_products.* TO 'root'@'%' IDENTIFIED BY 'promobit';
   FLUSH PRIVILEGES ;
+# Instale os pacotes com o composer
+$ composer install
 # Gerando chave de aplicação
 $ docker-compose exec app php artisan key:generate
 # Acesse o container app
 $ docker-compose exec app bash
-# Instale os pacotes com composer php
-$ composer install
 # Rode as migrations
 $ php artisan migrate:fresh --seed
 # Crie link simbólico do storage.
